@@ -53,6 +53,13 @@ def main():
                 print("Game Over!")
                 sys.exit()
 
+        for bullet in shots:
+            for asteroid in asteroids:
+                if bullet.check_collision(asteroid):
+                    bullet.kill()
+                    asteroid.split()
+        
+
         for entity in drawable:
             entity.draw(screen)
 
